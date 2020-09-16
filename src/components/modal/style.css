@@ -105,3 +105,8 @@ h2 {
 span {
   color: rgb(214, 93, 93);
 }
+
+p {
+  line-height: 25px;
+  letter-spacing: 0.5px;
+}
