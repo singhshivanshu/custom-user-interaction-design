@@ -62,7 +62,6 @@ function Home() {
   let btnTwo = Number(page) === 2 ? "active-page" : ''
   let btnThree = Number(page) === 3 ? "active-page" : ''
 
-  console.log(newUsers);
 
   return (
     <div style={{ marginTop: "5%", overflowX: 'auto'}}>
@@ -85,6 +84,7 @@ function Home() {
             </tr>
             {newUsers && newUsers.length !== 0
               ? newUsers.map((user, index) => {
+                console.log(user)
                   return (
                     <React.Fragment key={index}>
                       <tr onClick={() => setShow({ [index]: true })}>
@@ -117,6 +117,7 @@ function Home() {
                       <tr onClick={() => setShow({ [index]: true })}>
                         <td>
                           <img
+                            key= {Date.now()}
                             src={user.avatar}
                             alt={user.first_name}
                             style={{ width: "65px" }}
@@ -134,6 +135,7 @@ function Home() {
                         setShow={setShow}
                         user={user}
                         id={user.id}
+                        key = {user.id}
                       />
                     </React.Fragment>
                   );

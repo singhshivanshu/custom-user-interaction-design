@@ -3,34 +3,38 @@ import "./style.css";
 import axios from "axios";
 
 function Modal(props) {
-  const { show: incomingShow, user } = props;
+  const { show: incomingShow, user, id } = props;
   const [show, setShow] = useState(null);
   const [data, setData] = useState("");
+  const [img, setImg] = useState('')
 
   useEffect(() => {
     axios
-      .get(`https://reqres.in/api/users/${user.id}`)
+      .get(`https://reqres.in/api/users/${id}`)
       .then((response) => setData(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     setShow(incomingShow);
+    setImg(data && data.data.avatar)
   }, [incomingShow]);
 
   const onCloseHandler = () => {
     setShow(false);
     props.setShow(false);
+    setImg('')
   };
 
   window.onclick = function () {
     if (show) {
       setShow(false);
       props.setShow(false);
+      setImg('')
     }
   };
 
-  console.log(data);
+  console.log(img)
 
   return (
     <div id="modal" style={{ display: show ? "block" : "none" }}>
@@ -43,8 +47,9 @@ function Modal(props) {
         <div className="modal-body">
           <div class="card-container">
             <img
+              key={data && data.data.id}
               class="round"
-              src={data && data.data.avatar}
+              src={img}
               alt="user"
             />
             <h2>
