@@ -24,7 +24,13 @@ code {
   border-spacing: 0;
   box-shadow: 0 1px 3px 0 #649aff;
   border-collapse: collapse;
+
+
 }
+/* 
+tbody {
+  overflow-x: scroll;
+} */
 
 #table-container th {
   background-color: #000000;
@@ -70,6 +76,8 @@ img {
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
+  position: absolute;
+  left: 44%;
 }
 
 .page-button {
@@ -100,15 +108,14 @@ img {
 /* input-box */
 
 .input-container {
-    display: flex;
-    position: absolute;
-    left: 50%;
-    transform:  translate(-50%,50%);
-    background: black;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
-
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: black;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
 }
 .input-container:hover > .search-input {
   width: 240px;
@@ -142,3 +149,24 @@ img {
   transition: 0.4s;
 }
 /* end */
+@media (max-width: 500px) {
+  #table-container {
+    width: 450px;
+  }
+
+  #table-container th,
+  #table-container td {
+    letter-spacing: 1px;
+    padding: 3px;
+  }
+
+  #table-container p {
+    font-weight: 600;
+    letter-spacing: 0;
+    resize: horizontal;
+  }
+
+  .page {
+    left: 32%
+  }
+}

@@ -27,6 +27,12 @@
   animation-duration: 0.4s;
 }
 
+@media (max-width: 500px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
   from {
@@ -79,7 +85,7 @@
   color: #b3b8cd;
   padding-top: 30px;
   padding-bottom: 10px;
-  padding-left: 10px;
+  padding-left: 33px;
   padding-right: 10px;
   position: relative;
   width: 350px;

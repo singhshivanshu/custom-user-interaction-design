@@ -35,7 +35,7 @@ function Home() {
     }
     setPage(Number(event.target.innerHTML));
     setSearch("");
-    setNewUsers([])
+    setNewUsers()
   };
 
   if (Number(page) === 1) {
@@ -65,7 +65,7 @@ function Home() {
   console.log(newUsers);
 
   return (
-    <div style={{ marginTop: "5%" }}>
+    <div style={{ marginTop: "5%", overflowX: 'auto'}}>
       <div className="input-container">
         <input
           className="search-input"
@@ -83,7 +83,7 @@ function Home() {
               <th>Name</th>
               <th>Email</th>
             </tr>
-            {newUsers.length !== 0
+            {newUsers && newUsers.length !== 0
               ? newUsers.map((user, index) => {
                   return (
                     <React.Fragment key={index}>
